@@ -13,5 +13,6 @@ public enum ComponentType
     STEP,
     TRANSITION,
     DIVERGENCE,
-    CONVERGENCE
+    CONVERGENCE,
+    VARIABLE
 }

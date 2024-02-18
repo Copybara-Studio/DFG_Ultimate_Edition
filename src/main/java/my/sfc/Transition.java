@@ -12,16 +12,23 @@ import my.expression.Expression;
  */
 public class Transition extends Component
 {
+    private final Integer id;
     private Component precedingComponent;
     private Component succeedingComponent;
     private Expression condition;
     
-    public Transition(Expression expression)
+    public Transition(Integer _id, Expression expression)
     {
         super(ComponentType.TRANSITION);
         condition = expression;
+        id = _id;
     }
-    
+
+    public Transition(int source) {
+        super(ComponentType.TRANSITION);
+        id = source;
+    }
+
     public void setPrecedingStep(Step step)
     {
         precedingComponent = step;
@@ -40,5 +47,15 @@ public class Transition extends Component
     public void setSucceedingDivergence(Divergence divergence)
     {
         succeedingComponent = divergence;
+    }
+
+    @Override
+    public String toString() {
+        return "Transition{" +
+                "id=" + id +
+                ", precedingComponent=" + precedingComponent +
+                ", succeedingComponent=" + succeedingComponent +
+                ", condition=" + condition +
+                '}';
     }
 }

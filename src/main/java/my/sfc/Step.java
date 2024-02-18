@@ -12,6 +12,7 @@ import java.util.*;
  */
 public class Step extends Component
 {
+    private Integer id;
     private String label;
     
     /**
@@ -40,11 +41,12 @@ public class Step extends Component
      * Constructor.
      * @param label
      */
-    public Step(String label)
+    public Step(int _id, String label)
     {
         super(ComponentType.STEP);
         precedingComponents = new ArrayList<>();
         succeedingComponents = new ArrayList<>();
+        id = _id;
         this.label = label;
     }
     
@@ -154,5 +156,15 @@ public class Step extends Component
     public String getLabel()
     {
         return label;
+    }
+
+    @Override
+    public String toString() {
+        return "Step{" +
+                "id=" + id +
+                ", label='" + label + '\'' +
+                ", precedingComponents=" + precedingComponents +
+                ", succeedingComponents=" + succeedingComponents +
+                '}';
     }
 }

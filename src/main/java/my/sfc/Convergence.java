@@ -12,12 +12,14 @@ import java.util.*;
  */
 public class Convergence extends Component
 {
+    private Integer id;
     private List<Step> preceedingSteps;
     private Transition succeedingTransition;
     
-    public Convergence()
+    public Convergence(Integer _id)
     {
         super(ComponentType.CONVERGENCE);
+        id = _id;
         preceedingSteps = new ArrayList<>();
     }
     
@@ -30,5 +32,12 @@ public class Convergence extends Component
     {
         succeedingTransition = transition;
         transition.setPrecedingConvergence(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Convergence{" +
+                "id=" + id +
+                '}';
     }
 }
